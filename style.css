@@ -1,0 +1,33 @@
+button, div, form, input {
+	margin: 5px;
+}
+
+img {
+	max-width: 200px;
+	max-height: 200px;
+}
+
+label {
+    color: #fff;
+}
+
+.btn-default {
+    color: rgb(223, 219, 220);
+    font-size: medium;
+}
+
+body {
+background-color: rgb(56, 56, 56);
+    font-family: 'Bad Script', cursive;
+}
+
+
+.jumbotron {
+    text-align: center;
+    background-color: gray;
+    color: wheat;
+}
+
+#display-images {
+    color: bisque;
+}
