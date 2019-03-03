@@ -1,5 +1,6 @@
+//array for creating buttons
 var topics = ["Star Trek", "Beer", "Full Metal Alchemist", "Spaceballs"];
-
+//function to search for a display gifs
 function displayGifs() {
   var search = $(this).attr("data-search")
   var queryURL = "https://api.giphy.com/v1/gifs/search?q="
@@ -38,7 +39,7 @@ function displayGifs() {
 
   });
 }
-
+//creates new buttons each time a search term is entered
 function createButtons() {
   $("#display-buttons").empty();
 
@@ -52,26 +53,28 @@ function createButtons() {
 
     $("#display-buttons").append(newButton);
   })
-  displayGifs();
+  displayGifs(); //trying to get gifs to display for latest button creation
 }
 
-function changeImageState() {          
+//causes gifs to start or stop moving
+function changeImageState() {
 
   var state = $(this).attr("data-state");
   var animate = $(this).attr("data-animate");
   var still = $(this).attr("data-still");
 
-  if(state === "still") {
-      $(this).attr("src", animate);
-      $(this).attr("data-state", "animate");
+  if (state === "still") {
+    $(this).attr("src", animate);
+    $(this).attr("data-state", "animate");
   }
 
-  else if(state === "animate") {
-      $(this).attr("src", still);
-      $(this).attr("data-state", "still");
-  }   
+  else if (state === "animate") {
+    $(this).attr("src", still);
+    $(this).attr("data-state", "still");
+  }
 }
 
+//logs user input and sends it off to create new buttons
 $("#submit-button").on("click", function (event) {
   event.preventDefault();
 
@@ -79,14 +82,13 @@ $("#submit-button").on("click", function (event) {
   console.log(input);
   topics.push(input);
   $("#user-input").val("")
-  
 
   createButtons();
- 
 
 })
-
+//loads button array on page load
 createButtons();
 
+//fires off appropriate function based on what is clicked on
 $(document).on("click", "#input", displayGifs);
 $(document).on("click", ".gif", changeImageState);
