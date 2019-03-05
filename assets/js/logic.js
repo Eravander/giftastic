@@ -1,9 +1,12 @@
 //array for creating buttons
 var topics = ["Star Trek", "Beer", "Full Metal Alchemist", "Spaceballs"];
+
 //function to search for a display gifs
 function displayGifs() {
+  
   var search = $(this).attr("data-search")
-  var queryURL = "https://api.giphy.com/v1/gifs/search?q="
+  var queryURL = "https://api.giphy.com/v1/gifs/search?"
+
 
   $.ajax({
     url: queryURL,
@@ -12,8 +15,8 @@ function displayGifs() {
       q: search,
       limit: 10,
       rating: "pg",
-      apikey: ""
-    }
+      apikey: "SzZLpRJFAxR9Vx6z7iJfiJA3NOau9v1K"
+    } 
   }).then(function (response) {
     console.log(response)
     var results = response.data
@@ -53,7 +56,7 @@ function createButtons() {
 
     $("#display-buttons").append(newButton);
   })
-  displayGifs(); //trying to get gifs to display for latest button creation
+ 
 }
 
 //causes gifs to start or stop moving
