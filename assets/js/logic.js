@@ -15,7 +15,7 @@ function displayGifs() {
       q: search,
       limit: 10,
       rating: "pg",
-      apikey: config
+      apiKey: "SzZLpRJFAxR9Vx6z7iJfiJA3NOau9v1K"
     } 
   }).then(function (response) {
     console.log(response)
